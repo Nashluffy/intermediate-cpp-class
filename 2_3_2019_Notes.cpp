@@ -1,5 +1,10 @@
 /* 
-1/18/19 Notes 
+
+2/3/2019 Class Notes & Output - Vectors ADT (Abstract Data Type)
+
+Vector is like an array but can scale (grows and shrinks automatically)
+It can store any type of data; but only one type at  a time
+
 To compile, g++ -std=c++11 file_name.cpp -o output_file
 
     Update your local repo from the central repo (git pull upstream master).
@@ -7,22 +12,21 @@ To compile, g++ -std=c++11 file_name.cpp -o output_file
     Push changes from local repo to your fork on github.com (git push origin master)
     Update the central repo from your fork (Pull Request)
     Repeat.
+
 */
 
-//Review day, but learning about constants
 
 #include <iostream>
+#include <vector>
+#include <string>
+
 using namespace std;
 
 int main(){
-    const int x = 10;
 
-    //x = 1312; This would not work because x has been set as a read only variable
-    cout << x << endl;
-
-    //We can fill arrays with constants by using a for loop 
-    //This can be used to protect arrays & the like
+    vector my_vec;
+    string teams;
+    cout << "Enter your favorite NFL teams" << endl;
+    cin >> teams;
 
 }
-
-
