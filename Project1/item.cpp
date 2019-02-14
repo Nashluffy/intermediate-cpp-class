@@ -8,7 +8,10 @@ Setters:
 */
 #include <string>
 #include "item.h"
+#include <iostream>
 using namespace std;
+
+
 
 string Item::getDescription(){
     return itemDescription;
@@ -22,6 +25,6 @@ void Item::setDescription(string i){
     itemDescription = i;
 }
 
-void Item::setPrice(double c){
+void Item::setCost(double c){
     cost = c;
 }

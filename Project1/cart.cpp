@@ -16,7 +16,7 @@ int GroceryCart::getItemCount(){
     return cartVector.size();
 }
 
-bool GroceryCart::isCartEmpty(Item cartItem){
+bool GroceryCart::isCartEmpty(){
     return cartVector.empty();
 }
 
@@ -25,14 +25,25 @@ void GroceryCart::deleteItem(Item cartItem){
     //cartVector(cartItem).erase();
     for(std::vector<Item>::iterator it = cartVector.begin(); it != cartVector.end(); ++it){
         if ((*it).getDescription() == cartItem.getDescription()){
-            cout << "Item found!" << endl;
+            cout << "Item Deleted" << endl;
+            cartVector.erase(it);
+            it--; //This is necessary since std::vector<Item>::erase creates new iterator at the next location
         }
     }
+
     
 }
 
-//int GroceryCart::calcTotalCost(vector<Item> cartVector){
- //   for(std::vector<Item>::iterator i = cartVector.begin(); iterator != cartVector.end(); ++i){
-//
-//    }
-//}
+double GroceryCart::calcTotalCost(){
+    int totalCost;
+    this->cartVector = cartVector;
+    for(std::vector<Item>::iterator i = cartVector.begin(); i != cartVector.end(); ++i){
+        totalCost = totalCost + (*i).getPrice();
+    }
+    return totalCost;
+}
+
+vector<Item> GroceryCart::returnVec(){
+    return cartVector;
+}
+

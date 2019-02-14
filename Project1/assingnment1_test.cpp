@@ -44,7 +44,7 @@ int main()
     
     cart1.insertItem(it2);
     cart1.insertItem(it3);
-/*
+
     if (!cart1.isCartEmpty()) { // Test isCartEmpty() method
         cout << "Number of items in cart1 " << cart1.getItemCount() << endl; // Tests getItemCount() method
         cout << "Total cost of items in cart1 $" << cart1.calcTotalCost() << endl; // Tests calcTotalCost() method
@@ -61,6 +61,7 @@ int main()
     cart2.insertItem(it1);
     it4.setDescription("Coffee"); // Tests setDescription() method
     it4.setCost(7.5); //Test setCost method
+    
     cout << it4; //Should print Coffee:$7.5. Tests << operator
     cart2.insertItem(it4);
     
@@ -80,5 +81,5 @@ int main()
         cout << "Possibly duplicate carts" << endl;
 
     return 0;
-    */
+        
 }

@@ -17,15 +17,24 @@ Also, overload the == operator to see if two carts are identical. Two carts are 
 class GroceryCart{
     public:
         GroceryCart() : cartVector {} {};
-        GroceryCart(Item c) : cartVector {c} {};
+        GroceryCart(Item cartItem) : cartVector {cartItem} {};
         void insertItem(Item cartItem);
         void deleteItem(Item cartItem);
         int getItemCount();
-        bool isCartEmpty(Item cartItem);
-        double calctotalCost(vector<Item> cartVector);
+        bool isCartEmpty();
+        double calcTotalCost();
+        vector<Item> returnVec();
+        friend GroceryCart operator==(GroceryCart& cart1, GroceryCart& cart2){
+            bool dupCarts;
+            if(cart1.returnVec().size() == cart2.returnVec().size()) {
+                dupCarts = true;
+            }
+            else{
+                dupCarts = false;
+            }
+        }
     private:
         vector<Item> cartVector;
         Item cartItem;
-
 };
 
