@@ -34,11 +34,16 @@ class fraction {
 
         friend fraction operator+(fraction& f1, fraction& f2); //Not part of class - outside it. But is a friend of class
         //Friends can access private dat without beingp art of class. No need to use getters and setters
-        friend ostream& operator << (ostream& os, fraction& f);
+        friend ostream& operator<<(ostream& os, fraction& f);
     private:
         int numerator;
         int denominator;
 };
+
+ostream& fraction::operator<<(ostream& os, fraction& f){
+    os << f.numerator << "/" << f.denominator << endl;
+    return os;
+}
 
 
 fraction operator+(fraction& f1, fraction& f2){
@@ -55,10 +60,6 @@ void fraction::setDenominator(int d){
         denominator = d;
 }
 
-ostream& fraction::operator<<(ostream& os, fraction& f){
-    os << f.numerator << "/" << f.denominator << endl;
-    return os;
-}
 
 int main (){
 
@@ -68,6 +69,7 @@ fraction f1(1,2),f2(1,4),f3,f4(7);
 
 f3 = f1 + f2;
 cout << f3.getNumerator() << "/" << f3.getDenominator() << endl;
+cout << f3;
 
 }
 
