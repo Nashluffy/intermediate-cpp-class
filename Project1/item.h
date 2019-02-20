@@ -22,10 +22,7 @@ class Item{
         Item(string i, double c) : itemDescription{i} , cost {c} {};
         Item(string i) : itemDescription{i}, cost{} {};
         Item(double c) : itemDescription{}, cost{c} {};
-        friend ostream& operator<<(ostream& os, Item& tempItem){
-            os << tempItem.getDescription() << ": $" << tempItem.getPrice()<< endl;
-            return os;
-        }
+        friend ostream& operator<<(ostream& os, Item& tempItem);
 
     private:
         string itemDescription;

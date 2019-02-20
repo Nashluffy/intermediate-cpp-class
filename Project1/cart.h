@@ -25,28 +25,7 @@ class GroceryCart{
         bool isCartEmpty();
         double calcTotalCost();
         vector<Item> returnVec();
-        friend bool operator==(GroceryCart& cart1, GroceryCart& cart2){
-            bool dupCarts;
-            int matchedItems = 0;
-            vector<Item> cart1Vector, cart2Vector;
-            cart1Vector = cart1.returnVec();
-            cart2Vector = cart2.returnVec();
-            for(std::vector<Item>::iterator it = cart1Vector.begin(); it != cart1Vector.end(); ++it){
-                for(std::vector<Item>::iterator i = cart2Vector.begin(); i != cart2Vector.end(); ++i){
-                    if((*i).getDescription() == (*it).getDescription()){ //If the item i in cart2 doesn't match the item it in cart1
-                        matchedItems = matchedItems + 1;
-                    }
-                }
-            }
-            if (((matchedItems == cart1Vector.size()) && (matchedItems == cart2Vector.size()))){
-                dupCarts = true;
-            }
-            else{
-                dupCarts = false;
-            }
-            return dupCarts;
-            
-        }
+        friend bool operator==(GroceryCart& cart1, GroceryCart& cart2);
     private:
         vector<Item> cartVector;
         Item cartItem;

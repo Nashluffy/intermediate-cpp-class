@@ -55,5 +55,9 @@ int main(){
     //So the idea is, *(p+i) is the same as p[i]
     //Array name is really just the address of the array
 
+    p = nullptr; //This removes the address p was holding
+
+    //Segmentation fault means illegal memory access
+
     return 0;
 }

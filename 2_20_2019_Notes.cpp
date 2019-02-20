@@ -22,15 +22,28 @@ class MyVector{
         int size;
         int cap;
     public:
+        ~MyVector(); //Destructor: Cleans stuff up. Here deletes arr
         MyVector() : arr{nullptr} {};
         void push(int ele);
+        friend ostream& operator <<(ostream& os, MyVector& v);
 };
+
+MyVector::~MyVector(){
+    delete[] arr;
+    cout << "Destroyed vector" << endl;
+}
+
+ostream& operator <<(ostream& os, MyVector& v){
+    for (int i = 0; i < v.size; i++){
+        os << v.arr[i] << " ";
+    }
+}
 
 int main(){
     MyVector vec;
     vec.push(1);
     vec.push(2);
-    //cout << vec;
+    cout << vec << endl;
 }
 
 void MyVector::push(int ele){
