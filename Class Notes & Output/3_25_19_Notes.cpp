@@ -29,7 +29,19 @@ Example:
 
     cout << "Population of AZ: " << statePopulation.at("AZ") << endl;
     statePopulation.at("AZ") = 34990914; //Population grew by one!
+
 Map is used to put things away and get things back really quick
+Can have multiple values mapped to a key
+
+Set is like a map, but no key
+Set does not allow duplicate, so if you want to store all unique words in a file, store them in a set
+
+Queue is first in, first out
+    Only access to items at the front and the back, nothing in the middle
+
+Stack is last in, first out
+
+Deque is basically a double ended queue, can push from the front and the back
 
 
 */
