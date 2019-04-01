@@ -8,14 +8,14 @@
 using namespace std;
 
 //Converting degree to radians for use in the Haversine formula
-float deg2rad(float convertMe){
+double deg2rad(double convertMe){
     convertMe = convertMe * M_PI/180;
     return convertMe;
 }
 
 //Haversine Formula Calculator
-float calculateDistance(float phi, float lambda){
-    float delta_phi, delta_lambda, charPhi, charLambda, a , c, d, R;
+double calculateDistance(double phi, double lambda){
+    double delta_phi, delta_lambda, charPhi, charLambda, a , c, d, R;
     charPhi = deg2rad(35.2060); //Charlotte Latitude
     charLambda = deg2rad(-80.8290); //Charlotte Longitutde
     phi = deg2rad(phi); //Destination Latitude
@@ -31,12 +31,12 @@ float calculateDistance(float phi, float lambda){
 }
 
 //Parse each line from the cities.txt file
-pair<float,string> parseLine(string s){ //We're going to store the distance from Charlotte as the key (float) and city, state as the value
+pair<double,string> parseLine(string s){ //We're going to store the distance from Charlotte as the key (double) and city, state as the value
     string word, citystate;
     int i = 0;
-    float phi, lambda, distance;
+    double phi, lambda, distance;
     stringstream ss(s);
-    pair<float,string> distanceLocPair;
+    pair<double,string> distanceLocPair;
     while(getline(ss, word ,',')){
         if (i == 0){
             citystate = word; //Store the city as the first part of the combined string
@@ -47,11 +47,11 @@ pair<float,string> parseLine(string s){ //We're going to store the distance from
             i++;
         }
         else if(i == 2){
-            phi = stof(word); //Convert latitude string to float
+            phi = stod(word); //Convert latitude string to double
             i++;
         }
         else if(i == 3){ 
-            lambda = stof(word); //Convert longitude string to float
+            lambda = stod(word); //Convert longitude string to double
             i++;
         }
     }
@@ -61,15 +61,19 @@ pair<float,string> parseLine(string s){ //We're going to store the distance from
 }
 
 //Thankfully, map's are sorted automatically. We just need to print the results!
-void printMap(map<float,string> sortedCities){
+void printMap(map<double,string> sortedCities){
+    ofstream output_file;
+    output_file.open("dist_clt.txt");
     for (auto it = sortedCities.begin(); it != sortedCities.end(); it++){   //auto is super nice, really cleans up code when defining an iterator for map's
-        cout << it->second << " " << it->first << endl;  
+        output_file << it->second << " " << it->first << endl;
+
     }
+    output_file.close();
 }
 
 int main(){
     string line;
-    map<float, string> sortedCities;
+    map<double, string> sortedCities;
     ifstream cities; //Create file stream object
     cities.open("cities.txt"); //Open our text file
     while(getline(cities,line)){
