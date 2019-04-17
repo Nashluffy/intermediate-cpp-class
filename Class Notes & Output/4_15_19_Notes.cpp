@@ -11,7 +11,7 @@ void printNum(int n){
     string printMe;
     if (n/1 > 1){
         printNum(n-1);
-        printNum(n-2);
+        printNum(0);
     }
     else if (n/1 == 1){
         cout << "1" << endl;
