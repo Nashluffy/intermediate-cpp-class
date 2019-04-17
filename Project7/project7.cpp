@@ -16,11 +16,12 @@ int main()
 int sumDigits(int n) {
     //We need a way to get number off the end of the integer
     //I thought about string stream, but that's not recursive
-    //Credit to https://www.geeksforgeeks.org/find-first-last-digits-number/ for the %10 method to get the first and last number
+    //Credit to https://www.geeksforgeeks.org/find-first-last-digits-number/ for the %10 method to get the last number off of an integer
     //Any integer%10 will return the last digit of the integer
     if (n != 0){ //While there's still numbers on the end of the integer
         int sum = n % 10; //Store the number on the end 
         return (sum + sumDigits(n / 10)); //Recursively add the number on the end to the other numbers on the end
+                                          //The /10 is important to discard the number on the end, or else we would never hit base case
     } 
     else{
         return 0; //Base case
