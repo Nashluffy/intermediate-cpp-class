@@ -16,8 +16,25 @@ void printNum(int n, string answer){
     }
 }
 
+//It will start at MSB
+/*
 
+Calls printNum(3, "");
+    Calls printNum(2, "0")
+        Calls printNum(1, "00")
+            Calls printNum(0, "000")
+            Calls printNum(0, "001")
+        Calls printNum(1, "01")
+            Calls printNum(0,"010")
+            Calls printNum(0,"011")
+    Calls printNum(2, "1")
+        Calls printNum(1,"10")
+            Calls printNum(0,"100")
+            Calls printNum(0,"101")
+        Calls printNum(1,"11")
+            Calls printNum(0,"110")
+            Calls printNum(0,"111")
 
 int main(){
-    printNum(3, "");
+    printNum(5, "");
 }
