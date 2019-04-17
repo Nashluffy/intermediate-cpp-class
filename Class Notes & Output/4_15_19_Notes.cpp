@@ -5,23 +5,19 @@ using namespace std;
 
 //Desired output would be enter 2^n
 //ie. 2^2 would print 00 01 10 11
-//Base case would be when n/1 would be 1
-    //Once we hit base case, we need to return 1 & 0
-void printNum(int n){
+void printNum(int n, string answer){
     string printMe;
-    if (n/1 > 1){
-        printNum(n-1);
-        printNum(0);
+    if (n==0){
+        cout << answer << endl;
     }
-    else if (n/1 == 1){
-        cout << "1" << endl;
-    }
-    else{
-        cout << "0" << endl;
+    else {
+        printNum(n-1, answer+"0");
+        printNum(n-1, answer+"1");
     }
 }
 
 
+
 int main(){
-    printNum(3);
+    printNum(3, "");
 }
